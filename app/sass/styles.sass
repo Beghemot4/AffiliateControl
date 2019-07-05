@@ -1,0 +1,287 @@
+@import "variables"
+@import 'fonts'
+*
+    margin: 0
+    padding: 0
+    outline: none
+    box-sizing: border-box
+
+a, a:hover, a:active, a:focus
+	text-decoration: none
+	outline: none
+a
+    +tr
+    color: inherit
+
+img
+  max-width: 100%
+
+body
+    height: 100vh
+    font-size: 18px
+    +rr
+    position: relative
+    color: #000
+main
+    display: flex
+.hamburger
+    width: 20px
+    height: 15px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    position: absolute
+    right: 15px
+    top: 17px
+    z-index: 5
+    display: none
+.hamburger__line
+    width: 100%
+    height: 2px
+    border-radius: 4px
+    background-color: $dgr
+    +tr
+header
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 23%
+    height: 100vh
+nav
+    display: flex
+    grow: 1
+    flex-direction: column
+    justify-content: space-around
+    flex-grow: 1
+    align-items: center
+    padding: 40px 0
+.nav__link
+    letter-spacing: .2px
+    position: relative
+    &::before
+        +bf
+        width: 0%
+        height: 2px
+        background: $dgr
+        bottom: -10px
+        left: 50%
+        +tr        
+    &:hover
+        color: $dgr
+        text-shadow: 0px 0px 1px $dgr
+        &:before
+            left: 0
+            width: 100%
+
+.header__title-wrapper
+    background-color: $dgr
+    display: flex
+    +p36
+    flex-direction: column
+    overflow: hidden
+    
+.header__title
+    color: #fff
+    text-transform: uppercase
+    +rbl
+    padding-left: 40px
+    padding-top: 32px
+    +p30
+    max-width: 80%
+    line-height: 1.4
+.header__angle        
+    border-bottom: 90px solid #fff
+    border-left: 450px solid transparent    
+    z-index: 3
+.callback
+    background-color: #1f0000
+    color: #fff
+    +rb
+    display: flex
+    text-align: center
+    justify-content: center
+    align-items: center
+    height: 80px
+    +p24
+    position: relative
+    overflow: hidden
+    z-index: 1
+    &:hover
+        color: #fff
+        background-color: $dgr
+section
+    flex-grow: 1
+.content
+    background-image: url(../img/backgrounds/Background.jpg)
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center center
+    height: 72vh
+    width: 100%
+    padding: 50px 40px
+    display: flex
+    flex-direction: column
+    position: relative
+    &::before
+        +bf
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        background-image: linear-gradient(to right, rgba(204, 204, 204, .8), rgba(0,0,0, 0.9) 60%)
+        opacity: 0.4
+        z-index: 0
+.content__title-wrapper
+    display: flex
+    justify-content: flex-end
+    text-align: right
+    flex-grow: 1
+    z-index: 2
+.content__title
+    color: #FFF
+    letter-spacing: 1px
+    font-weight: 400
+    font-size: 1.9em
+    +rl
+.date__wrapper
+    text-align: center
+    z-index: 2
+    
+.date
+    color: #fff
+    +rl
+    +p30
+    letter-spacing: 1px
+    margin-bottom: 30px
+.btn
+    background-color: $bl
+    border-radius: 20px
+    color: #fff
+    +rl
+    +p18
+    padding: 10px 20px
+    display: inline-block
+    letter-spacing: .2px
+    &:hover
+        box-shadow: 0px 0px 5px 1px $bl
+.date__reg
+    margin-bottom: 15px
+.date__note
+    font-style: italic
+    color: #fff
+    +p14
+    +rl
+.date__learn-more
+    color: #fff
+    +rl 
+    +p14
+    text-decoration: underline
+    &:hover
+        color: $bl
+.speakers__title
+section
+    overflow: hidden
+.my-slider
+    
+    div
+        background-color: red
+        height: 50px
+        border: 2px solid blue
+@media (min-width: 0px) and (max-width: 1200px)
+    body
+        font-size: 14px
+    header
+        width: 100%
+        position: fixed
+        left: 0
+        top: 0
+        background: #fff
+        height: 100vh
+        max-height: 45px
+        transition: .3s ease
+        overflow: hidden
+        z-index: 5
+
+    header.active
+        max-height: 100vh
+        overflow: auto
+        nav, .callback
+            opacity: 1
+        .hamburger__line
+            position: relative
+            &:first-of-type
+                transform: rotate(45deg)
+                top: 7px
+            &:nth-last-child(2)
+                display: none
+            &:last-of-type
+                transform: rotate(-45deg)
+                top: -6px
+        .nav__link
+            opacity: 1
+            transform: translateX(0px)
+    .hamburger
+        display: flex
+    .header__title-wrapper
+        align-items: center
+        padding: 0 15px
+        min-height: 45px
+        justify-content: center
+        align-items: flex-start
+    .header__title
+        padding: 0
+        max-width: 100%
+        +p14
+        letter-spacing: .2px
+    .header__angle
+        position: absolute
+        right: 0
+        top: 0
+        border-bottom: 45px solid #fff
+        border-left: 130px solid transparent
+    nav,.callback
+        opacity: 0
+    .nav__link
+        opacity: 0
+        transform: translateX(-15px)
+    @for $i from 1 through 6
+        .nav__link
+            &:nth-child( #{$i} )
+                transition-delay: $i * .1s
+    .callback
+        height: 40px
+        +p20
+    .content
+        padding: 50px 15px 15px
+        height: 60vh
+        &:before
+            background-image: linear-gradient(to right, #4c4e55, rgba(0,0,0, 0.9) 60%)
+            opacity: .2
+    .content__title-wrapper
+        align-items: center
+        text-align: center
+        justify-content: center
+    .content__title
+        +p30
+        +rr
+        text-shadow: 0px 0px 1px #000
+    .date
+        margin-bottom: 15px
+        +p20
+    .btn
+        padding: 5px 10px
+        +p16
+@media (min-width: 768px) and (max-width: 1023px)
+    body
+        font-size: 18px
+@media (min-width: 1024px) and (max-width: 1200px)
+    body
+        font-size: 22px
+    .callback
+        height: 80px
+@media (min-width: 1200px) and (max-width: 1400px)
+    body
+        font-size: 14px
+@media (min-width: 1400px) and (max-width: 1600px)
+    body
+        font-size: 16px
