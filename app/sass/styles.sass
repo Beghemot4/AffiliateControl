@@ -111,6 +111,7 @@ nav
         background-color: $dgr
 section
     flex-grow: 1
+    width: 77%
 .content
     background-image: url(../img/backgrounds/Background.jpg)
     background-size: cover
@@ -179,14 +180,68 @@ section
     &:hover
         color: $bl
 .speakers__title
-section
+    +p20
+    margin-bottom: 15px
+.tns-outer [data-action]
+    display: none
+.speakers__wrapper
+    height: 28vh
+    border-top: 1px solid #cdcdc9
+    border-left: 1px solid #6aaca8
+    padding: 10px  30px
+.speakers__title
+    +rbl
+.tns-outer
+   max-width: 90%
+//    display: flex
+.speakers
+    display: flex
+.speakers__photo
+    +tr
+.speakers__photo-wrapper
     overflow: hidden
-.my-slider
-    
-    div
-        background-color: red
-        height: 50px
-        border: 2px solid blue
+    max-width: 130px
+    display: inline-block
+    margin-bottom: 5px
+    border-radius: 50%
+.speakers__item
+    &:hover
+        .speakers__name
+            color: $dgr
+            &:before
+                width: 70% 
+        .speakers__photo
+            transform: scale(1.02)
+.speakers__name
+    +rr
+    font-weight: 400
+    position: relative
+    margin-bottom: 5px
+    +tr
+    &:before
+        +bf
+        +tr
+        width: 30px
+        height: 2px
+        background: $dgr
+        left: 1px
+        bottom: -2px
+.speakers__proff
+    +p14
+    color: $dgr
+.become__speaker
+    display: flex
+    align-items: center
+    flex-direction: column
+    justify-content: space-around
+.become__speaker-title
+    font-size: 1.9em
+    text-align: center
+    line-height: 1
+    +rbl
+.become__speaker-btn
+    padding: 4px 30px
+    +p14
 @media (min-width: 0px) and (max-width: 1200px)
     body
         font-size: 14px
@@ -271,17 +326,63 @@ section
     .btn
         padding: 5px 10px
         +p16
+    .speakers__wrapper 
+        height: initial
+        border-left: none
+        padding-bottom: 40px
+    .speakers
+        flex-direction: column
+    .speakers__item
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+    .tns-outer
+        margin-bottom: 25px
+    .become__speaker-title
+        margin-bottom: 10px
+        +p24
+    .become__speaker-btn
+        +p18
+    .tns-outer
+        max-width: 100%
+    
 @media (min-width: 768px) and (max-width: 1023px)
     body
         font-size: 18px
+    .become__speaker-title
+        +p24
+        margin-bottom: 20px
+    .tns-outer
+        margin-bottom: 50px
+    .become__speaker-btn
+        padding: 5px 20px
 @media (min-width: 1024px) and (max-width: 1200px)
     body
         font-size: 22px
     .callback
         height: 80px
+    .become__speaker-title
+        +p24
+        margin-bottom: 20px
+    .tns-outer
+        margin-bottom: 50px
+    .become__speaker-btn
+        padding: 5px 20px
+    .speakers__photo-wrapper 
+        overflow: hidden
+        max-width: 200px
+    .speakers__name
+        +p24
+    .speakers__proff
+        +p20
 @media (min-width: 1200px) and (max-width: 1400px)
     body
         font-size: 14px
+    .speakers__photo-wrapper
+        max-width: 110px
+    .become__speaker-btn 
+        padding: 4px 20px
 @media (min-width: 1400px) and (max-width: 1600px)
     body
         font-size: 16px
