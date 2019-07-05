@@ -1,6 +1,5 @@
 # AffiliateControl
- 
-# Developer-test
+
 
 <b> Технологии используемые при разработке:</b>
     <ol>
